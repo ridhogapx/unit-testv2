@@ -20,3 +20,12 @@ func (service PostService) Get(id string) (*entity.Post, error) {
 		return post, nil
 	}
 }
+
+func (service PostService) Query(query string) (*[]entity.Post, error) {
+	posts := service.Repository.Filter(query)
+	if posts == nil {
+		return posts, errors.New("Post is not found")
+	} else {
+		return posts, nil
+	}
+}

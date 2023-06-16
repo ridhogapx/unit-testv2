@@ -20,3 +20,13 @@ func (repository *PostRepositoryMock) FindById(id string) *entity.Post {
 		return &post
 	}
 }
+
+func (repository *PostRepositoryMock) Filter(query string) *[]entity.Post {
+	args := repository.Mock.Called(query)
+	if args.Get(0) == nil {
+		return nil
+	} else {
+		posts := args.Get(0).([]entity.Post)
+		return &posts
+	}
+}
