@@ -10,7 +10,7 @@ type PostRepositoryMock struct {
 	Mock mock.Mock
 }
 
-// Fix this
+// Todo: add more test
 func (repository *PostRepositoryMock) FindById(id string) *entity.Post {
 	args := repository.Mock.Called(id)
 	if args.Get(0) == nil {

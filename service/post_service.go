@@ -10,6 +10,8 @@ type PostService struct {
 	Repository repository.PostRepository
 }
 
+// Todo: Add more service
+
 func (service PostService) Get(id string) (*entity.Post, error) {
 	post := service.Repository.FindById(id)
 	if post == nil {
