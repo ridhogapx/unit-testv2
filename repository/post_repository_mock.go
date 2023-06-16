@@ -11,11 +11,12 @@ type PostRepositoryMock struct {
 }
 
 // Fix this
-func (repository *PostRepositoryMock) FindById(id string) entity.Post {
-	args := repository.Mock.Called(author)
+func (repository *PostRepositoryMock) FindById(id string) *entity.Post {
+	args := repository.Mock.Called(id)
 	if args.Get(0) == nil {
 		return nil
 	} else {
-		return
+		post := args.Get(0).(entity.Post)
+		return &post
 	}
 }
