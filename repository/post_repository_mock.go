@@ -26,9 +26,9 @@ func (repository *PostRepositoryMock) Filter(query string) *[]entity.Post {
 	if args.Get(0) == nil {
 		return nil
 	} else {
-		// Gotta fix this real quick
-		posts := args.Get(0).(entity.Post)
-		result := []entity.Post{posts}
-		return &result
+		// This is fixed
+		posts := args.Get(0).([]entity.Post)
+		return &posts
+
 	}
 }
