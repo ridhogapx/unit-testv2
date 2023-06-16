@@ -58,5 +58,5 @@ func TestFilterPost(t *testing.T) {
 	assert.Nil(t, error)
 	assert.NotNil(t, result)
 	// Fix this!!!
-	assert.Equal(t, posts[1].Title, result[1].Title)
+	assert.Equal(t, posts, result)
 }
