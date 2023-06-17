@@ -45,6 +45,42 @@ func BenchmarkWithSub(b *testing.B) {
 	})
 }
 
+func BenchmarkTable(b *testing.B) {
+	benchmarks := []struct {
+		name    string
+		request Person
+	}{
+		{
+			name: "First",
+			request: Person{
+				Name: "Michael",
+				Nick: "Raihan",
+				Age:  30,
+			},
+		},
+		{
+			name: "Second",
+			request: Person{
+				Name: "Gerald",
+				Nick: "Adept",
+				Age:  27,
+			},
+		},
+		{
+			name: "Third",
+			request: Person{
+				Name: "Budi",
+				Nick: "Setiawan",
+				Age:  27,
+			},
+		},
+	}
+
+	for _, benchmark := range benchmarks {
+		// Continue this
+	}
+}
+
 func TestFirst(t *testing.T) {
 	// first case
 
