@@ -32,6 +32,17 @@ func BenchmarkWithSub(b *testing.B) {
 			ChangePerson(testVal)
 		}
 	})
+
+	b.Run("Second", func(b *testing.B) {
+		*testVal = Person{
+			Name: "Gerald",
+			Nick: "Wijaya",
+			Age:  26,
+		}
+		for i := 0; i < b.N; i++ {
+			ChangePerson(testVal)
+		}
+	})
 }
 
 func TestFirst(t *testing.T) {
