@@ -12,11 +12,26 @@ var expected Person = Person{
 	Age:  40,
 }
 
+var testVal *Person = new(Person)
+
 // Benchmark test
 func BenchmarkCase(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		ChangePerson(&expected)
 	}
+}
+
+func BenchmarkWithSub(b *testing.B) {
+	b.Run("First", func(b *testing.B) {
+		*testVal = Person{
+			Name: "Dio",
+			Nick: "Giorvani",
+			Age:  26,
+		}
+		for i := 0; i < b.N; i++ {
+			ChangePerson(testVal)
+		}
+	})
 }
 
 func TestFirst(t *testing.T) {
