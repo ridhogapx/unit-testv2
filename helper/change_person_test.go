@@ -77,7 +77,11 @@ func BenchmarkTable(b *testing.B) {
 	}
 
 	for _, benchmark := range benchmarks {
-		// Continue this
+		b.Run(benchmark.name, func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				ChangePerson(&benchmark.request)
+			}
+		})
 	}
 }
 
